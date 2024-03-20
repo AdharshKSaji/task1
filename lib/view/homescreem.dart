@@ -61,7 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),SizedBox(height: 40,),
             Column(children: [
-              Container(height: 120,
+              Container(height: 120,decoration: BoxDecoration(
+        border:Border.all(style: BorderStyle.solid,color: ColorConstants.normalgrey) ),
               child: ListView.builder(shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: DummyDb.category.length,
@@ -89,26 +90,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),SizedBox(height: 40,),
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [
-              InkWell(onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyChat(),));
-              },
-                child: Container(height: 120,
-                child: ListView.builder(shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: DummyDb.products.length,
-                itemBuilder:(BuildContext context,int index) {
-                  return Container(
-                    width: 180,
-                    child: Card(child: Image.network(DummyDb.products[index]["imgurl"],fit: BoxFit.fill,),
-                    ),
-                  );
-                }
-                ),
-                
-                ),
-              )
-            ],),Column(
+            Container(
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [
+                InkWell(onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyChat(),));
+                },
+                  child: Container(height: 120,
+                  child: ListView.builder(shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: DummyDb.products.length,
+                  itemBuilder:(BuildContext context,int index) {
+                    return Container(decoration: BoxDecoration(
+                      border:Border.all(style: BorderStyle.solid,color: ColorConstants.normalgrey) ),
+                      width: 180,
+                      child: Card(child: Image.network(DummyDb.products[index]["imgurl"],fit: BoxFit.fill,),
+                      ),
+                    );
+                  }
+                  ),
+                  
+                  ),
+                )
+              ],),
+            ),Column(
               children: [Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [Text("Red Label Tea Leaf 1kg",style: TextStyle(fontSize: 12),),Icon(Icons.shopping_cart,color: ColorConstants.primarygreen,),
                 Text("Kaibavi Splits kashew",style: TextStyle(fontSize: 12)),Icon(Icons.shopping_cart,color: ColorConstants.primarygreen,)
@@ -121,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [Text("\$12 5% off",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                 Text("\$5 50 %off",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                 
-          
+                      
                 ],
               ),],
             )
@@ -138,7 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ,color: ColorConstants.normalBlack),),
                     Text("View all",style: TextStyle(
                       color: ColorConstants.primarygreen
-                    ),)
+                    ),
+                    )
                   ],
                 )
               ],)

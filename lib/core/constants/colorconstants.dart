@@ -5,4 +5,5 @@ class ColorConstants {
   static const Color primarWhite = Color(0xffFFFFFF);
 
   static const Color normalBlack = Colors.black;
+   static const Color normalgrey = Colors.grey;
 }
